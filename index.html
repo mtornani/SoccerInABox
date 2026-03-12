@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#050a10">
     <title>Soccer in a Box - Tactical HUD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="soccer_css.css">
     <link rel="manifest" href="soccer_manifest.json">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
@@ -72,21 +73,22 @@
                     </div>
 
                     <div class="eval-section" id="targetPlayersSection">
-                        <h3>2. Monitoraggio Asimmetrico (Talent ID)</h3>
+                        <h3>2. Monitoraggio Talent ID</h3>
                         <p class="text-small">Segnala rapidamente performance di giocatori target (es. In prova o sotto osservazione centrale).</p>
                         
-                        <!-- Lista player iterabile -->
-                        <div class="target-player-row">
-                            <input type="text" placeholder="Nome Giocatore (Opzionale)" class="player-name-input">
-                            <select class="player-rating-input">
-                                <option value="">Voto...</option>
-                                <option value="A">A (Eccellente)</option>
-                                <option value="B">B (In Linea)</option>
-                                <option value="C">C (Da Rivedere)</option>
-                            </select>
-                            <button type="button" class="btn-icon" onclick="soccerApp.addTargetPlayerRow()">+</button>
+                        <div id="extraPlayers">
+                            <!-- Lista player iterabile -->
+                            <div class="target-player-row">
+                                <input type="text" placeholder="Nome Giocatore" class="player-name-input">
+                                <select class="player-rating-input">
+                                    <option value="">Voto...</option>
+                                    <option value="A">A (Eccellente)</option>
+                                    <option value="B">B (In Linea)</option>
+                                    <option value="C">C (Da Rivedere)</option>
+                                </select>
+                            </div>
                         </div>
-                        <div id="extraPlayers"></div>
+                        <button type="button" class="btn-icon" onclick="soccerApp.addTargetPlayerRow()">+ AGGIUNGI ALTRO GIOCATORE TARGET</button>
                     </div>
 
                     <div class="modal-actions">

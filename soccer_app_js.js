@@ -132,6 +132,7 @@ class SoccerInABox {
         const container = document.getElementById('extraPlayers');
         const row = document.createElement('div');
         row.className = 'target-player-row';
+        row.style.animation = 'fadeIn 0.3s ease-out';
         row.innerHTML = `
             <input type="text" placeholder="Nome Giocatore" class="player-name-input">
             <select class="player-rating-input">
