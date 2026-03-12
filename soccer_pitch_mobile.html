@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Soccer in a Box - Pitch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050a10;
+            --accent: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.3);
+            --text: #ffffff;
+            --text-muted: #8a99ad;
+            --panel: #0d1624;
+            --grad: linear-gradient(135deg, #0d1624 0%, #050a10 100%);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+
+        section {
+            width: 20%;
+            height: 100%;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background: var(--grad);
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Ambient Glows */
+        section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 900; line-height: 0.9; margin: 0 0 20px 0; letter-spacing: -2px; }
+        h1 span { color: var(--accent); display: block; }
+        
+        h2 { font-size: 1.8rem; font-weight: 700; margin: 0 0 15px 0; color: var(--accent); }
+        
+        p { font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px 0; }
+        
+        .box-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .feature-list { list-style: none; padding: 0; margin: 20px 0; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
+        .feature-list li::before { content: '→'; color: var(--accent); font-weight: 900; }
+
+        .client-card {
+            background: rgba(255,255,255,0.03);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        .dot.active { background: var(--accent); width: 30px; border-radius: 10px; }
+
+        .swipe-hint {
+            position: fixed;
+            bottom: 60px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .content { animation: fadeIn 0.8s ease-out; }
+
+    </style>
+</head>
+<body>
+
+    <div class="slider" id="slider">
+        <!-- SLIDE 1: VISION -->
+        <section>
+            <div class="content">
+                <div class="box-badge">The Concept</div>
+                <h1>SOCCER <span>IN A BOX.</span></h1>
+                <p>La "Razione Militare" del calcio formativo. Meno software, più binario operativo.</p>
+                <div class="client-card">
+                  <strong>Il Problema:</strong> Manuali PDF e Cloud complessi muoiono in periferia. L'allenatore rurale è isolato e il controllo di qualità è nullo.
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: THE TOOL -->
+        <section>
+            <div class="content">
+                <h2>L'Arma <span>Segreta.</span></h2>
+                <p>Una PWA (Progressive Web App) ultra-leggera che trasforma un tablet economico in un HUD tattico operativo.</p>
+                <ul class="feature-list">
+                    <li><strong>Offline-First:</strong> Zero consumo dati al campo.</li>
+                    <li><strong>Locked Method:</strong> Il coach non inventa, esegue il tuo "Binario".</li>
+                    <li><strong>High-Contrast:</strong> Leggibile sotto la polvere e il sole.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: PAYOFF -->
+        <section>
+            <div class="content">
+                <h2>Il Ciclo del <span>Ritorno.</span></h2>
+                <p>Niente più report prolissi. Solo l'essenziale per il quartier generale in Europa.</p>
+                <ul class="feature-list">
+                    <li>3 Domande rapide (30 secondi).</li>
+                    <li>Sync automatico via Webhook.</li>
+                    <li>Monitoraggio globale a costo ZERO.</li>
+                </ul>
+                <div class="client-card">
+                  <strong>Scalabilità:</strong> Da 1 a 100 Accademie satelliti domattina, con lo stesso controllo tecnico.
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: TARGET -->
+        <section>
+            <div class="content">
+                <h2>Clienti <span>Ideali.</span></h2>
+                <div class="client-card" style="margin-bottom: 10px;">
+                  <strong>Academy Elite (Juve, Inter, etc):</strong> Per standardizzare poli a 10.000km di distanza.
+                </div>
+                <div class="client-card" style="margin-bottom: 10px;">
+                  <strong>Federazioni & FIFA:</strong> Per distribuire programmi tecnici in aree con scarsa connettività (Africa, Sudamerica).
+                </div>
+                <div class="client-card">
+                  <strong>Club Rurali:</strong> Il toolkit professionale che non richiede infrastruttura.
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: WHY NOW? -->
+        <section>
+            <div class="content">
+                <h1>LET'S <span>BATTLE.</span></h1>
+                <p>Democratizzare l'analisi calcistica significa abbattere le barriere tecniche.</p>
+                <ul class="feature-list">
+                    <li>Margine operativo: 90%.</li>
+                    <li>Costo infrastruttura: 0€.</li>
+                    <li>Time-to-market: 10 giorni.</li>
+                </ul>
+                <p style="color: var(--accent); font-weight: 700;">Pronto per il deploy?</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="swipe-hint">Swipe per navigare</div>
+
+    <div class="controls">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+        let currentIdx = 0;
+        let startX = 0;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIdx * 20}%)`;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
+        }
+
+        window.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        window.addEventListener('touchend', e => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentIdx < 4) currentIdx++;
+                else if (diff < 0 && currentIdx > 0) currentIdx--;
+                updateSlider();
+            }
+        });
+
+        // Clickable dots
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIdx = i;
+                updateSlider();
+            });
+        });
+    </script>
+</body>
+</html>

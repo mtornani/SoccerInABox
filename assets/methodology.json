@@ -1,0 +1,56 @@
+{
+  "club_id": "juventus_global",
+  "session": {
+    "id": 14,
+    "title": "Seduta #14: Transizione Positiva e Verticalizzazione",
+    "theme": "Sfruttamento dello spazio in transizione",
+    "target_age": "U14-U16",
+    "duration_minutes": 90,
+    "phases": [
+      {
+        "id": "attivazione",
+        "title": "Fase 1: Attivazione Tecnica e Coordinativa",
+        "duration": 20,
+        "type": "Rondo",
+        "diagram_placeholder": "Rondo 4v1 con transizione rapida",
+        "coaching_points": [
+          "Postura corretta per la ricezione (orientarsi verso il campo aperto)",
+          "Trasmissione forte e rasoterra",
+          "Reazione immediata alla perdita del possesso (riaggressione in 3 secondi)"
+        ],
+        "difficulty_variants": {
+          "easier": "Aumentare lo spazio di gioco",
+          "harder": "Limitare a 1 tocco obbligatorio"
+        }
+      },
+      {
+        "id": "centrale",
+        "title": "Fase 2: Situazionale Centrale",
+        "duration": 40,
+        "type": "Partita a Tema",
+        "diagram_placeholder": "3v3 + 2 Sponde su campo ridotto con porte piccole",
+        "coaching_points": [
+          "Giocare palla avanti alla prima occasione utile",
+          "Scaglionamento offensivo (creare diverse linee di passaggio)",
+          "Smacamento rapido appena la palla viene recuperata"
+        ],
+        "difficulty_variants": {
+          "easier": "Dare un jolly offensivo in più",
+          "harder": "Obbligo di concludere l'azione entro 8 secondi dal recupero"
+        }
+      },
+      {
+        "id": "partita",
+        "title": "Fase 3: Partita Finale Libera",
+        "duration": 30,
+        "type": "Partita Libera",
+        "diagram_placeholder": "6v6 a campo intero",
+        "coaching_points": [
+          "Applicazione libera dei principi allenati",
+          "Ricerca costante della superiorità numerica e posizionale"
+        ],
+        "difficulty_variants": {}
+      }
+    ]
+  }
+}
